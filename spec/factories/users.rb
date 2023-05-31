@@ -1,4 +1,5 @@
 FactoryBot.define do
+  Faker::Config.locale = 'ja'
   factory :user do   
     nickname                  {Faker::Name.initials}
     email                     {Faker::Internet.free_email}
