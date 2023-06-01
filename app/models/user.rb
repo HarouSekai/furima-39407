@@ -15,5 +15,6 @@ class User < ApplicationRecord
     validates :last_name_pronunciation
     validates :first_name_pronunciation
   end
+  has_many :items
   validates :birthday,                 presence: true
 end
