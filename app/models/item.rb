@@ -6,4 +6,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :waiting_days_until_shipment
   belongs_to :user
+  validates :name, :outline, :user, presence: true
+  validates :category_id, :state_id, :postage_id, :prefecture_id, :waiting_days_until_shipment_id, presence: true, numericality: {other_than: 1}
+  validates :price, presence: true, numericality: {in: 300..9999999}
 end
