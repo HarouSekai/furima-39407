@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :find_item, only: [:show, :edit]
 
   def index
     @items = Item.order(created_at: 'DESC')
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -39,5 +39,9 @@ class ItemsController < ApplicationController
       :waiting_days_until_shipment_id,
       :price
     ).merge(user_id: current_user.id)
+  end
+
+  def find_item
+    @item = Item.find(params[:id])
   end
 end
