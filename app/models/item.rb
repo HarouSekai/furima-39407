@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :waiting_days_until_shipment
   belongs_to :user
+  has_one :purchase
   validates :image, :name, :outline, :user_id, presence: true
   validates :category_id, :state_id, :postage_id, :prefecture_id, :waiting_days_until_shipment_id,
             presence: true, numericality: { other_than: 1, message: "can't be blank" }
