@@ -31,6 +31,12 @@ RSpec.describe PurchaseDestination, type: :model do
         expect(@order.errors.full_messages).to include("Item can't be blank")
       end
 
+      it 'tokenがなければ購入できない' do
+        @order.token = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Token can't be blank")
+      end
+
       it '郵便番号がなければ購入できない' do
         @order.post_code = ""
         @order.valid?
