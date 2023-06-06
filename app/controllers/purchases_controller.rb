@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :find_item
+  before_action :move_to_root
 
   def index
     @purchase_destination = PurchaseDestination.new
@@ -34,4 +35,15 @@ class PurchasesController < ApplicationController
         currency: 'jpy'
       )
   end
+
+  def move_to_root
+    if user_signed_in? && current_user.id != @item.user_id
+      if @item.purchase
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
 end
