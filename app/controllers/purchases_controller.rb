@@ -17,7 +17,7 @@ class PurchasesController < ApplicationController
       render :index
     end
   end
-  
+
   private
 
   def find_item
@@ -25,26 +25,25 @@ class PurchasesController < ApplicationController
   end
 
   def purchase_destination_params
-    params.require(:purchase_destination).permit(:post_code, :prefecture_id, :municipality, :address, :building, :telephone_number).merge(user_id: current_user.id, item_id: params[:item_id]).merge(token: params[:token])
+    params.require(:purchase_destination).permit(:post_code, :prefecture_id, :municipality, :address, :building, :telephone_number).merge(
+      user_id: current_user.id, item_id: params[:item_id]
+    ).merge(token: params[:token])
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: @item.price,
-        card: purchase_destination_params[:token],
-        currency: 'jpy'
-      )
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: purchase_destination_params[:token],
+      currency: 'jpy'
+    )
   end
 
   def move_to_root
     if user_signed_in? && current_user.id != @item.user_id
-      if @item.purchase
-        redirect_to root_path
-      end
+      redirect_to root_path if @item.purchase
     else
       redirect_to root_path
     end
   end
-
 end

@@ -13,7 +13,7 @@ RSpec.describe PurchaseDestination, type: :model do
       end
 
       it '建物名がなくても購入できる' do
-        @order.building = ""
+        @order.building = ''
         expect(@order).to be_valid
       end
     end
@@ -38,21 +38,21 @@ RSpec.describe PurchaseDestination, type: :model do
       end
 
       it '郵便番号がなければ購入できない' do
-        @order.post_code = ""
+        @order.post_code = ''
         @order.valid?
         expect(@order.errors.full_messages).to include("Post code can't be blank")
       end
 
       it '郵便番号は「3桁ハイフン4桁」でなければ購入できない' do
-        @order.post_code = "1234567"
+        @order.post_code = '1234567'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@order.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
 
       it '郵便番号が全角では購入できない' do
-        @order.post_code = "１２３－４５６７"
+        @order.post_code = '１２３－４５６７'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@order.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
 
       it '都道府県がなければ購入できない' do
@@ -68,45 +68,45 @@ RSpec.describe PurchaseDestination, type: :model do
       end
 
       it '市区町村がなければ購入できない' do
-        @order.municipality = ""
+        @order.municipality = ''
         @order.valid?
         expect(@order.errors.full_messages).to include("Municipality can't be blank")
       end
 
       it '番地がなければ購入できない' do
-        @order.address = ""
+        @order.address = ''
         @order.valid?
         expect(@order.errors.full_messages).to include("Address can't be blank")
       end
 
       it '電話番号がなければ購入できない' do
-        @order.telephone_number = ""
+        @order.telephone_number = ''
         @order.valid?
         expect(@order.errors.full_messages).to include("Telephone number can't be blank")
       end
 
       it '電話番号が9桁以下では購入できない' do
-        @order.telephone_number = "098765432"
+        @order.telephone_number = '098765432'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it '電話番号が12桁以上では購入できない' do
-        @order.telephone_number = "098765432112"
+        @order.telephone_number = '098765432112'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it '電話番号が全角では購入できない' do
-        @order.telephone_number = "０９８７６５４３２１"
+        @order.telephone_number = '０９８７６５４３２１'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it '電話番号に文字列が入っていては購入できない' do
-        @order.telephone_number = "090-8765-4321"
+        @order.telephone_number = '090-8765-4321'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order.errors.full_messages).to include('Telephone number is invalid')
       end
     end
   end
