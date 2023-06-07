@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_root
-    return unless current_user != @item.user
+    return unless current_user != @item.user || @item.purchase
 
     redirect_to root_path
   end
