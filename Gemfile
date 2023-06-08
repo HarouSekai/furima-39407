@@ -67,3 +67,4 @@ gem 'devise'
 gem 'pry-rails'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
+gem 'mail', '2.7.1'
