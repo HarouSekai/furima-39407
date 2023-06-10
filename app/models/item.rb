@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   has_one :purchase
   validates :image, :name, :outline, :user_id, presence: true
   validates :category_id, :state_id, :postage_id, :prefecture_id, :waiting_days_until_shipment_id,
-            presence: true, numericality: { other_than: 1, message: "can't be blank" }
+            presence: true, numericality: { other_than: 1, message: "を選んでください" }
   with_options presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 } do
     validates :price
   end

@@ -5,8 +5,8 @@ class PurchaseDestination
   with_options presence: true do
     validates :user_id, :item_id
     validates :token
-    validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'は不正な値です。ハイフン (-) を入れてください' }
+    validates :prefecture_id, numericality: { other_than: 1, message: "を選んでください" }
     validates :municipality, :address
     validates :telephone_number, format: { with: /\A[0-9]{10,11}\z/ }
   end
