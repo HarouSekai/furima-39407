@@ -18,6 +18,7 @@ ja:
         prefecture_id: 発送元の地域
         waiting_days_until_shipment_id: 発送までの日数
         price: 販売価格
+        user_id: ユーザー情報
   activemodel:
     attributes:
       purchase_destination:
