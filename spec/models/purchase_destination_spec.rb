@@ -22,25 +22,25 @@ RSpec.describe PurchaseDestination, type: :model do
       it '紐づく購入者がいなければ購入できない' do
         @order.user_id = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("ユーザー情報を入力してください")
+        expect(@order.errors.full_messages).to include('ユーザー情報を入力してください')
       end
 
       it '紐づく商品がなければ購入できない' do
         @order.item_id = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("商品情報を入力してください")
+        expect(@order.errors.full_messages).to include('商品情報を入力してください')
       end
 
       it 'tokenがなければ購入できない' do
         @order.token = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("クレジットカード情報を入力してください")
+        expect(@order.errors.full_messages).to include('クレジットカード情報を入力してください')
       end
 
       it '郵便番号がなければ購入できない' do
         @order.post_code = ''
         @order.valid?
-        expect(@order.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@order.errors.full_messages).to include('郵便番号を入力してください')
       end
 
       it '郵便番号は「3桁ハイフン4桁」でなければ購入できない' do
@@ -58,31 +58,31 @@ RSpec.describe PurchaseDestination, type: :model do
       it '都道府県がなければ購入できない' do
         @order.prefecture_id = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("都道府県を選んでください")
+        expect(@order.errors.full_messages).to include('都道府県を選んでください')
       end
 
       it '都道府県はidが1では購入できない' do
         @order.prefecture_id = 1
         @order.valid?
-        expect(@order.errors.full_messages).to include("都道府県を選んでください")
+        expect(@order.errors.full_messages).to include('都道府県を選んでください')
       end
 
       it '市区町村がなければ購入できない' do
         @order.municipality = ''
         @order.valid?
-        expect(@order.errors.full_messages).to include("市区町村を入力してください")
+        expect(@order.errors.full_messages).to include('市区町村を入力してください')
       end
 
       it '番地がなければ購入できない' do
         @order.address = ''
         @order.valid?
-        expect(@order.errors.full_messages).to include("番地を入力してください")
+        expect(@order.errors.full_messages).to include('番地を入力してください')
       end
 
       it '電話番号がなければ購入できない' do
         @order.telephone_number = ''
         @order.valid?
-        expect(@order.errors.full_messages).to include("電話番号を入力してください")
+        expect(@order.errors.full_messages).to include('電話番号を入力してください')
       end
 
       it '電話番号が9桁以下では購入できない' do

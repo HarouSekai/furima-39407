@@ -16,85 +16,85 @@ RSpec.describe Item, type: :model do
       it '商品画像がなければ出品できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品画像を選択してください")
+        expect(@item.errors.full_messages).to include('商品画像を選択してください')
       end
 
       it '商品名がなければ出品できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
 
       it '商品の説明がなければ出品できない' do
         @item.outline = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
 
       it 'カテゴリーの情報がなければ出品できない' do
         @item.category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("カテゴリーを選んでください")
+        expect(@item.errors.full_messages).to include('カテゴリーを選んでください')
       end
 
       it 'category_idが1では出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("カテゴリーを選んでください")
+        expect(@item.errors.full_messages).to include('カテゴリーを選んでください')
       end
 
       it '商品の状態の情報がなければ出品できない' do
         @item.state_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の状態を選んでください")
+        expect(@item.errors.full_messages).to include('商品の状態を選んでください')
       end
 
       it 'state_idが1では出品できない' do
         @item.state_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の状態を選んでください")
+        expect(@item.errors.full_messages).to include('商品の状態を選んでください')
       end
 
       it '配送料の負担の情報がなければ出品できない' do
         @item.postage_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送料の負担を選んでください")
+        expect(@item.errors.full_messages).to include('配送料の負担を選んでください')
       end
 
       it 'postage_idが1では出品できない' do
         @item.postage_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送料の負担を選んでください")
+        expect(@item.errors.full_messages).to include('配送料の負担を選んでください')
       end
 
       it '配送元の地域の情報がなければ出品できない' do
         @item.prefecture_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送元の地域を選んでください")
+        expect(@item.errors.full_messages).to include('発送元の地域を選んでください')
       end
 
       it 'prefecture_idが1では出品できない' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送元の地域を選んでください")
+        expect(@item.errors.full_messages).to include('発送元の地域を選んでください')
       end
 
       it '発送までの日数の情報がなければ出品できない' do
         @item.waiting_days_until_shipment_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送までの日数を選んでください")
+        expect(@item.errors.full_messages).to include('発送までの日数を選んでください')
       end
 
       it 'waiting_days_until_shipment_idが1では出品できない' do
         @item.waiting_days_until_shipment_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送までの日数を選んでください")
+        expect(@item.errors.full_messages).to include('発送までの日数を選んでください')
       end
 
       it '価格の情報がなければ出品できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格を入力してください")
+        expect(@item.errors.full_messages).to include('販売価格を入力してください')
       end
 
       it '価格が300円未満では出品できない' do
